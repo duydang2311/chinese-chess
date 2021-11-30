@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\duyda\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\duyda\\.nuget\\packages"
+    ]
+  }
+}
