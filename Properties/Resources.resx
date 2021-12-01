@@ -118,7 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="black_cannon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black_cannon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black_chariot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black_chariot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black_elephant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black_elephant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black_general" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black_general.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black_guard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black_guard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black_horse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black_horse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black_soldier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black_soldier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="board_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\board_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_cannon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red_cannon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_chariot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red_chariot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_elephant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red_elephant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_general" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red_general.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_guard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red_guard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_horse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red_horse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_soldier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red_soldier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
