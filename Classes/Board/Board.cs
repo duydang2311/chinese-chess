@@ -38,8 +38,15 @@ namespace ChineseChess {
         }
         public void Draw(Graphics graphics) {
             graphics.DrawImage(ChineseChess.Properties.Resources.board_trans, this.location.X, this.location.Y, this.Width, this.Height);
+			for(int i = 0; i != Board.Rows; ++i) {
+				for(int j = 0; j != Board.Cols; ++j) {
+					graphics.DrawEllipse(new Pen(System.Drawing.Color.Red), BoardHelper.GetLocation(this, i, j).X, BoardHelper.GetLocation(this, i, j).Y, 10, 10);
+				}
+			}
             foreach(Player player in this.players) {
-                player.Draw(graphics);
+				if(player != null) {
+					player.Draw(graphics);
+				}
             }
         }
     }
