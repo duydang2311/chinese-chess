@@ -1,6 +1,6 @@
 namespace ChineseChess {
     enum Side {
-        Black,
-        Red 
+        Top,
+        Bottom
     }
 }
