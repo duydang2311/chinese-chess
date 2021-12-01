@@ -38,6 +38,9 @@ namespace ChineseChess {
         }
         public void Draw(Graphics graphics) {
             graphics.DrawImage(ChineseChess.Properties.Resources.board_trans, this.location.X, this.location.Y, this.Width, this.Height);
+            foreach(Player player in this.players) {
+                player.Draw(graphics);
+            }
         }
     }
 }
