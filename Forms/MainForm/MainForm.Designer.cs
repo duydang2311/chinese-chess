@@ -32,6 +32,8 @@ namespace ChineseChess
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel2 = new System.Windows.Forms.Panel();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -42,7 +44,7 @@ namespace ChineseChess
             this.gameToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(769, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -60,11 +62,27 @@ namespace ChineseChess
 			this.newToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
 			this.newToolStripMenuItem.Text = "New";
 			// 
+			// panel1
+			// 
+			this.panel1.Location = new System.Drawing.Point(0, 24);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(493, 617);
+			this.panel1.TabIndex = 1;
+			// 
+			// panel2
+			// 
+			this.panel2.Location = new System.Drawing.Point(493, 24);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(276, 617);
+			this.panel2.TabIndex = 2;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(769, 641);
+			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "MainForm";
@@ -81,6 +99,8 @@ namespace ChineseChess
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel panel2;
 	}
 }
 
