@@ -29,10 +29,10 @@ namespace ChineseChess {
             set { this.location = value; }
         }
         public void AddPlayer(Player player) {
-            this.players[(int)player.Side] = player;
+            this.players[(int)player.Color] = player;
         }
-        public Player GetPlayer(Side team) {
-            int index = (int)team;
+        public Player GetPlayer(Color color) {
+            int index = (int)color;
             if(index < 0 && index >= this.players.Length) return null;
             return this.players[index];
         }

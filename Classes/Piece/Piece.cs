@@ -19,7 +19,7 @@ namespace ChineseChess {
             set { this.location = value; }
         }
         public Image Image {
-            get => PieceHelper.GetImage(player.Side, this.type);
+            get => PieceHelper.GetImage(player.Color, this.type);
         }
     }
 }

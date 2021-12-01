@@ -2,7 +2,7 @@ using System.Collections.Generic;
 namespace ChineseChess {
     class Player {
         private string name;
-        private Side team;
+        private Color color;
         private List<Piece> pieces;
         public Player(string name) {
             this.name = name;
@@ -12,9 +12,9 @@ namespace ChineseChess {
             get => this.name;
             set { this.name = value; }
         }
-        public Side Side {
-            get => this.team;
-            set { this.team = value; }
+        public Color Color {
+            get => this.color;
+            set { this.color = value; }
         }
         public List<Piece> Pieces {
             get => this.pieces;
