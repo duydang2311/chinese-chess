@@ -11,7 +11,7 @@ namespace ChineseChess {
         public Board(float size, PointF location) {
             this.size = size;
             this.location = location;
-            this.players = new Player[2];
+            this.players = new Player[System.Enum.GetNames(typeof(Side)).Length];
         }
         public float Width {
             get => this.size;
@@ -28,11 +28,11 @@ namespace ChineseChess {
             get => this.location;
             set { this.location = value; }
         }
-        public void AddPlayer(Player player) {
-            this.players[(int)player.Color] = player;
+        public void AddPlayer(Side side, Player player) {
+            this.players[(int)side] = player;
         }
-        public Player GetPlayer(Color color) {
-            int index = (int)color;
+        public Player GetPlayer(Side side) {
+            int index = (int)side;
             if(index < 0 && index >= this.players.Length) return null;
             return this.players[index];
         }
