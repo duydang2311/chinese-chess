@@ -2,9 +2,9 @@ using System.Drawing;
 
 namespace ChineseChess {
     class Board {
-        public const float WIDTH_HEIGHT_RATIO = 1.125F;
-        public const int ROWS = 10;
-        public const int COLS = 9;
+        public const float WidthHeightRatio = 1.125F;
+        public const int Rows = 10;
+        public const int Cols = 9;
         private float size;
         private PointF location;
         private Player[] players;
@@ -18,8 +18,8 @@ namespace ChineseChess {
             set { this.size = value; }
         }
         public float Height {
-            get => this.size * Board.WIDTH_HEIGHT_RATIO;
-            set { this.size = value / Board.WIDTH_HEIGHT_RATIO; }
+            get => this.size * Board.WidthHeightRatio;
+            set { this.size = value / Board.WidthHeightRatio; }
         }
         public Player[] Players {
             get => this.players;
