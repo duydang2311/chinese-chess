@@ -30,9 +30,9 @@ namespace ChineseChess
 		private void InitializeComponent()
 		{
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.menuItemGame = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuItemGame_New = new System.Windows.Forms.ToolStripMenuItem();
+			this.panelGame = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -41,33 +41,33 @@ namespace ChineseChess
 			// 
 			this.menuStrip1.BackColor = System.Drawing.SystemColors.Menu;
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gameToolStripMenuItem});
+            this.menuItemGame});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(769, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
-			// gameToolStripMenuItem
+			//menuItemGame 
 			// 
-			this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem});
-			this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-			this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-			this.gameToolStripMenuItem.Text = "Game";
+			this.menuItemGame.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemGame_New});
+			this.menuItemGame.Name = "menuItemGame";
+			this.menuItemGame.Size = new System.Drawing.Size(50, 20);
+			this.menuItemGame.Text = "Game";
 			// 
-			// newToolStripMenuItem
+			//menuItemGame_New 
 			// 
-			this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-			this.newToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-			this.newToolStripMenuItem.Text = "New";
+			this.menuItemGame_New.Name = "menuItemGame_New";
+			this.menuItemGame_New.Size = new System.Drawing.Size(98, 22);
+			this.menuItemGame_New.Text = "New";
 			// 
-			// panel1
+			//panelGame 
 			// 
-			this.panel1.Location = new System.Drawing.Point(0, 24);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(493, 617);
-			this.panel1.TabIndex = 1;
+			this.panelGame.Location = new System.Drawing.Point(0, 24);
+			this.panelGame.Name = "panelGame";
+			this.panelGame.Size = new System.Drawing.Size(493, 617);
+			this.panelGame.TabIndex = 1;
 			// 
 			// panel2
 			// 
@@ -82,7 +82,7 @@ namespace ChineseChess
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(769, 641);
 			this.Controls.Add(this.panel2);
-			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.panelGame);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "MainForm";
@@ -97,9 +97,9 @@ namespace ChineseChess
 		#endregion
 
 		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.ToolStripMenuItem menuItemGame;
+		private System.Windows.Forms.ToolStripMenuItem menuItemGame_New;
+		private System.Windows.Forms.Panel panelGame;
 		private System.Windows.Forms.Panel panel2;
 	}
 }
