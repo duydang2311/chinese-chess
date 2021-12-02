@@ -12,6 +12,11 @@ namespace ChineseChess {
             this.type = type;
             this.location = new Point(0, 0);
         }
+        public Piece(Board board, Pieces type, Point location) {
+            this.board = board;
+            this.type = type;
+            this.location = location;
+        }
         public Board Board {
             get => this.board;
         }
