@@ -44,11 +44,11 @@ namespace ChineseChess
             this.menuItemGame});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(769, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(780, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
-			//menuItemGame 
+			// menuItemGame
 			// 
 			this.menuItemGame.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemGame_New});
@@ -56,35 +56,38 @@ namespace ChineseChess
 			this.menuItemGame.Size = new System.Drawing.Size(50, 20);
 			this.menuItemGame.Text = "Game";
 			// 
-			//menuItemGame_New 
+			// menuItemGame_New
 			// 
 			this.menuItemGame_New.Name = "menuItemGame_New";
-			this.menuItemGame_New.Size = new System.Drawing.Size(98, 22);
+			this.menuItemGame_New.Size = new System.Drawing.Size(180, 22);
 			this.menuItemGame_New.Text = "New";
 			// 
-			//panelGame 
+			// panelGame
 			// 
+			this.panelGame.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelGame.Location = new System.Drawing.Point(0, 24);
 			this.panelGame.Name = "panelGame";
-			this.panelGame.Size = new System.Drawing.Size(493, 617);
+			this.panelGame.Size = new System.Drawing.Size(480, 540);
 			this.panelGame.TabIndex = 1;
 			// 
 			// panel2
 			// 
-			this.panel2.Location = new System.Drawing.Point(493, 24);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+			this.panel2.Location = new System.Drawing.Point(480, 24);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(276, 617);
+			this.panel2.Size = new System.Drawing.Size(300, 540);
 			this.panel2.TabIndex = 2;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(769, 641);
-			this.Controls.Add(this.panel2);
+			this.ClientSize = new System.Drawing.Size(780, 564);
 			this.Controls.Add(this.panelGame);
+			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
+			this.MinimumSize = new System.Drawing.Size(796, 603);
 			this.Name = "MainForm";
 			this.Text = "Form1";
 			this.menuStrip1.ResumeLayout(false);
