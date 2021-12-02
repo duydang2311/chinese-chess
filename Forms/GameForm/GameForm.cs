@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace ChineseChess
-{
-	public partial class GameForm : Form
-	{
-		public GameForm()
-		{
+namespace ChineseChess {
+	public partial class GameForm : Form {
+		public GameForm() {
 			InitializeComponent();
 		}
 	}
