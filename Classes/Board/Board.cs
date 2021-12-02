@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace ChineseChess {
     class Board {
@@ -7,11 +8,15 @@ namespace ChineseChess {
         public const int Cols = 9;
         private float size;
         private PointF location;
-        private Player[] players;
+        private List<Piece>[] sides;
         public Board(float size, PointF location) {
+            int length = System.Enum.GetNames(typeof(Side)).Length;
             this.size = size;
             this.location = location;
-            this.players = new Player[System.Enum.GetNames(typeof(Side)).Length];
+            this.sides = new List<Piece>[length];
+            for(int i = 0; i != length; ++i) {
+                this.sides[i] = new List<Piece>();
+            }
         }
         public float Width {
             get => this.size;
@@ -21,32 +26,32 @@ namespace ChineseChess {
             get => this.size * Board.WidthHeightRatio;
             set { this.size = value / Board.WidthHeightRatio; }
         }
-        public Player[] Players {
-            get => this.players;
+        public List<Piece>[] Sides {
+            get => this.sides;
         }
         public PointF Location {
             get => this.location;
             set { this.location = value; }
         }
-        public void AddPlayer(Side side, Player player) {
-            this.players[(int)side] = player;
+        public void AddPiece(Side side, Piece piece) {
+            this.sides[(int)side].Add(piece);
         }
-        public Player GetPlayer(Side side) {
-            int index = (int)side;
-            if(index < 0 && index >= this.players.Length) return null;
-            return this.players[index];
+        public void RemovePiece(Side side, Piece piece) {
+            int index = this.sides[(int)side].IndexOf(piece);
+            if(index == -1) return;
+            this.sides[(int)side].RemoveAt(index);
         }
-        public void Draw(Graphics graphics) {
+        public void Draw(Color[] colors, Graphics graphics) {
             graphics.DrawImage(ChineseChess.Properties.Resources.board_trans, this.location.X, this.location.Y, this.Width, this.Height);
 			for(int i = 0; i != Board.Rows; ++i) {
 				for(int j = 0; j != Board.Cols; ++j) {
 					graphics.DrawEllipse(new Pen(System.Drawing.Color.Red), BoardHelper.GetLocation(this, i, j).X, BoardHelper.GetLocation(this, i, j).Y, 10, 10);
 				}
 			}
-            foreach(Player player in this.players) {
-				if(player != null) {
-					player.Draw(graphics);
-				}
+            for(int i = 0 ; i != this.sides.Length; ++i) {
+                foreach(Piece piece in this.sides[i]) {
+                    piece.Draw(colors[i], graphics);
+                }
             }
         }
     }
