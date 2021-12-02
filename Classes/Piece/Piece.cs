@@ -8,6 +8,7 @@ namespace ChineseChess {
         private Pieces type;
         private Point location;
         public Piece(Board board, Pieces type) {
+            this.board = board;
             this.type = type;
             this.location = new Point(0, 0);
         }
