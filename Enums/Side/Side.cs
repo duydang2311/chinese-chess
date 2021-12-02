@@ -1,5 +1,5 @@
 namespace ChineseChess {
-    enum Side {
+    public enum Side {
         Top,
         Bottom
     }
