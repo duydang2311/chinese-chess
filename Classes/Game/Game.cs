@@ -14,6 +14,10 @@ namespace ChineseChess {
 			panel.Controls.Add(this);
 			panel.Resize += Panel_Resize;
 		}
+		public Board Board {
+			get => this.board;
+			set { this.board = value; }
+		}
 		protected override void OnPaint(PaintEventArgs e) {
 			base.OnPaint(e);
 			board.Draw(e.Graphics);
