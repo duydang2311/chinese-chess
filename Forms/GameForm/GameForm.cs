@@ -4,17 +4,13 @@ using System.Windows.Forms;
 namespace ChineseChess {
 	public partial class GameForm : Form {
 		private string redName;
-		private Side redSide;
 		private bool redIsAI;
 		private string blackName;
-		private Side blackSide;
 		private bool blackIsAI;
 		public GameForm(string redName = "", string blackName = "") {
 			this.redName = redName; 
-			this.redSide = Side.Top;
 			this.redIsAI = false;
 			this.blackName = blackName;
-			this.blackSide = Side.Bottom;
 			this.blackIsAI = false;
 			InitializeComponent();
 			this.buttonOk.Click += buttonOk_Click;
@@ -27,7 +23,7 @@ namespace ChineseChess {
 			get => this.redName;
 		}
 		public Side RedSide {
-			get => this.redSide;
+			get => (Side)this.comboBoxRedSide.SelectedIndex;
 		}
 		public bool RedIsAI {
 			get => this.redIsAI;
@@ -36,7 +32,7 @@ namespace ChineseChess {
 			get => this.blackName;
 		}
 		public Side BlackSide {
-			get => this.blackSide;
+			get => (Side)this.comboBoxBlackSide.SelectedIndex;
 		}
 		public bool BlackIsAI {
 			get => this.blackIsAI;
