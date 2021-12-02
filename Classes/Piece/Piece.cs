@@ -30,7 +30,10 @@ namespace ChineseChess {
         }
         public void Draw(Color color, Graphics graphics) {
             PointF location = BoardHelper.GetLocation(this.board, this.location.X, this.location.Y);
-            graphics.DrawImage(PieceHelper.GetImage(color, this.type), location.X, location.Y, Piece.Width, Piece.Height);
+            float size = this.board.Width / Board.Cols;
+            location.X -= size / 2;
+            location.Y -= size / 2;
+            graphics.DrawImage(PieceHelper.GetImage(color, this.type), location.X, location.Y, size, size);
         }
     }
 }
