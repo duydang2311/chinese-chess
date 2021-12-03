@@ -2,49 +2,64 @@ using System.Drawing;
 
 namespace ChineseChess {
     class PieceHelper {
+        public const int MAX_SIZE = 90;
+        public static Image red_cannon = new Bitmap(ChineseChess.Properties.Resources.red_cannon, MAX_SIZE, MAX_SIZE);
+        public static Image red_chariot = new Bitmap(ChineseChess.Properties.Resources.red_chariot, MAX_SIZE, MAX_SIZE);
+        public static Image red_general = new Bitmap(ChineseChess.Properties.Resources.red_general, MAX_SIZE, MAX_SIZE);
+        public static Image red_elephant = new Bitmap(ChineseChess.Properties.Resources.red_elephant, MAX_SIZE, MAX_SIZE);
+        public static Image red_horse = new Bitmap(ChineseChess.Properties.Resources.red_horse, MAX_SIZE, MAX_SIZE);
+        public static Image red_soldier = new Bitmap(ChineseChess.Properties.Resources.red_soldier, MAX_SIZE, MAX_SIZE);
+        public static Image red_guard = new Bitmap(ChineseChess.Properties.Resources.red_guard, MAX_SIZE, MAX_SIZE);
+        public static Image black_cannon = new Bitmap(ChineseChess.Properties.Resources.black_cannon, MAX_SIZE, MAX_SIZE);
+        public static Image black_chariot = new Bitmap(ChineseChess.Properties.Resources.black_chariot, MAX_SIZE, MAX_SIZE);
+        public static Image black_general = new Bitmap(ChineseChess.Properties.Resources.black_general, MAX_SIZE, MAX_SIZE);
+        public static Image black_elephant = new Bitmap(ChineseChess.Properties.Resources.black_elephant, MAX_SIZE, MAX_SIZE);
+        public static Image black_horse = new Bitmap(ChineseChess.Properties.Resources.black_horse, MAX_SIZE, MAX_SIZE);
+        public static Image black_soldier = new Bitmap(ChineseChess.Properties.Resources.black_soldier, MAX_SIZE, MAX_SIZE);
+        public static Image black_guard = new Bitmap(ChineseChess.Properties.Resources.black_guard, MAX_SIZE, MAX_SIZE);
         public static Image GetImage(SideColor color, Pieces piece) {
             switch(piece) {
                 case Pieces.General: {
                     if(color == SideColor.Black) {
-                        return ChineseChess.Properties.Resources.black_general;
+                        return black_general;
                     }
-                    return ChineseChess.Properties.Resources.red_general;
+                    return red_general;
                 }
                 case Pieces.Guard: {
                     if(color == SideColor.Black) {
-                        return ChineseChess.Properties.Resources.black_guard;
+                        return black_guard;
                     }
-                    return ChineseChess.Properties.Resources.red_guard;
+                    return red_guard;
                 }
                 case Pieces.Elephant: {
                     if(color == SideColor.Black) {
-                        return ChineseChess.Properties.Resources.black_elephant;
+                        return black_elephant;
                     }
-                    return ChineseChess.Properties.Resources.red_elephant;
+                    return red_elephant;
                 }
                 case Pieces.Chariot: {
                     if(color == SideColor.Black) {
-                        return ChineseChess.Properties.Resources.black_chariot;
+                        return black_chariot;
                     }
-                    return ChineseChess.Properties.Resources.red_chariot;
+                    return red_chariot;
                 }
                 case Pieces.Horse: {
                     if(color == SideColor.Black) {
-                        return ChineseChess.Properties.Resources.black_horse;
+                        return black_horse;
                     }
-                    return ChineseChess.Properties.Resources.red_horse;
+                    return red_horse;
                 }
                 case Pieces.Cannon: {
                     if(color == SideColor.Black) {
-                        return ChineseChess.Properties.Resources.black_cannon;
+                        return black_cannon;
                     }
-                    return ChineseChess.Properties.Resources.red_cannon;
+                    return red_cannon;
                 }
                 case Pieces.Soldier: {
                     if(color == SideColor.Black) {
-                        return ChineseChess.Properties.Resources.black_soldier;
+                        return black_soldier;
                     }
-                    return ChineseChess.Properties.Resources.red_soldier;
+                    return red_soldier;
                 }
             }
             return null;
