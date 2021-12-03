@@ -13,6 +13,8 @@ namespace ChineseChess {
 			this.blackName = blackName;
 			this.blackIsAI = false;
 			InitializeComponent();
+			this.comboBoxRedSide.SelectedIndex = 0;
+			this.comboBoxBlackSide.SelectedIndex = 1;
 			this.buttonOk.Click += buttonOk_Click;
 			this.comboBoxRedSide.SelectedIndexChanged += comboBoxRedSide_SelectedIndexChanged;
 			this.comboBoxBlackSide.SelectedIndexChanged += comboBoxBlackSide_SelectedIndexChanged;
