@@ -1,7 +1,7 @@
 using System.Drawing;
 
 namespace ChineseChess {
-    class PieceHelper {
+    static class PieceHelper {
         public const int MAX_SIZE = 90;
         public static Image red_cannon = new Bitmap(ChineseChess.Properties.Resources.red_cannon, MAX_SIZE, MAX_SIZE);
         public static Image red_chariot = new Bitmap(ChineseChess.Properties.Resources.red_chariot, MAX_SIZE, MAX_SIZE);
