@@ -53,9 +53,5 @@ namespace ChineseChess {
 			}
 			base.Dispose(disposing);
 		}
-		~Game() {
-			MessageBox.Show("did call");
-			this.Dispose(false);
-		}
 	}
 }
