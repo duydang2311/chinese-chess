@@ -1,7 +1,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Reflection;
 
 namespace ChineseChess {
 	partial class Game : PictureBox {
@@ -16,6 +15,7 @@ namespace ChineseChess {
 			this.board = board;
 			this.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.ClientSize = new Size(panel.ClientSize.Width, panel.ClientSize.Height);
+			this.DoubleBuffered = true;
 			panel.Controls.Add(this);
 			panel.Resize += this.Panel_Resize;
 
