@@ -2,7 +2,7 @@ using System.Drawing;
 using System.Collections.Generic;
 
 namespace ChineseChess {
-    class Board {
+    partial class Board {
         public const float WidthHeightRatio = 1.125F;
         public const int Rows = 10;
         public const int Cols = 9;
