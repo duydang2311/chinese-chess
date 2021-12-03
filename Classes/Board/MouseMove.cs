@@ -3,26 +3,35 @@ using System.Drawing;
 namespace ChineseChess {
     partial class Board {
         private Piece highlightedPiece;
-        public bool OnMouseMove(float x, float y) {
-            for(int i = 0 ; i != this.sides.Length; ++i) {
-                foreach(Piece piece in this.sides[i]) {
-                    if(piece.IsPointCollided(x, y)) {
-                        if(piece == highlightedPiece) return false;
-                        if(highlightedPiece != null) {
-                            highlightedPiece.Highlight = Color.Transparent;
-                        }
-                        piece.Highlight = System.Drawing.Color.Red;
-                        highlightedPiece = piece;
-                        return true;
+        public Piece HighlightedPiece {
+            get => this.highlightedPiece;
+            set {
+                if(this.highlightedPiece != null) {
+                    if(this.highlightedPiece != this.selectedPiece) {
+                        this.highlightedPiece.Highlight = Color.Transparent;
+                    }
+                }
+                this.highlightedPiece = value;
+                if(value != null) {
+                    if(this.highlightedPiece != this.selectedPiece) {
+                        this.highlightedPiece.Highlight = Color.Red;
                     }
                 }
             }
-            if(highlightedPiece != null) {
-                highlightedPiece.Highlight = Color.Transparent;
-                highlightedPiece = null;
-                return true;
+        }
+        public bool OnMouseMove(float x, float y) {
+            Piece newHighlightedPiece = null;
+            for(int i = 0 ; i != this.sides.Length; ++i) {
+                foreach(Piece piece in this.sides[i]) {
+                    if(piece.IsPointCollided(x, y)) {
+                        newHighlightedPiece = piece;
+                        break;
+                    }
+                }
             }
-            return false;
+            bool res = (this.highlightedPiece != newHighlightedPiece);
+            this.HighlightedPiece = newHighlightedPiece;
+            return res;
         }
     }
 }
