@@ -43,7 +43,7 @@ namespace ChineseChess {
             graphics.DrawImage(PieceHelper.GetImage(color, this.type), location.X, location.Y, diameter, diameter);
             if(this.highlight != Color.Transparent) {
                 using(Brush brush = new SolidBrush(Color.FromArgb(150, this.highlight.R, this.highlight.G, this.highlight.B))) {
-                    graphics.FillEllipse(brush, location.X - 1, location.Y - 1, diameter + 2, diameter + 2);
+                    graphics.FillEllipse(brush, location.X, location.Y, diameter, diameter);
                 }
             }
         }
