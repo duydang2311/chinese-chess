@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Threading.Tasks;
 
 namespace ChineseChess {
 	public partial class MainForm : Form {
@@ -9,7 +10,6 @@ namespace ChineseChess {
 			switch(form.DialogResult) {
 				case DialogResult.OK: {
 					if(this.game != null) {
-						this.Controls.Remove(this.game);
 						this.game.Dispose();
 					}
 					int sides = Enum.GetNames(typeof(Side)).Length;
