@@ -15,7 +15,7 @@ namespace ChineseChess {
             this.size = size;
             this.location = location;
             this.sides = new List<Piece>[length];
-            this.image = image;
+            this.image = new Bitmap(image, (int)(790 / Board.WidthHeightRatio), 790);
             for(int i = 0; i != length; ++i) {
                 this.sides[i] = new List<Piece>();
             }
@@ -36,23 +36,7 @@ namespace ChineseChess {
             set { this.location = value; }
         }
         public void Setup() {
-			const float MAX_SIZE = 80f;
             int i = 0;
-            ChineseChess.Properties.Resources.board_trans.SetResolution(788 / Board.WidthHeightRatio, 788);
-			ChineseChess.Properties.Resources.red_cannon.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.red_chariot.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.red_general.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.red_elephant.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.red_guard.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.red_horse.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.red_soldier.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.black_cannon.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.black_chariot.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.black_general.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.black_elephant.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.black_guard.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.black_horse.SetResolution(MAX_SIZE, MAX_SIZE);
-			ChineseChess.Properties.Resources.black_soldier.SetResolution(MAX_SIZE, MAX_SIZE);
             foreach(List<Piece> list in sides) {
                 list.Clear();
                 list.Add(new Piece(this, Pieces.General, new Point(i * (Board.Rows - 1), (int)(Board.Cols / 2))));
