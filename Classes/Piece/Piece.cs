@@ -2,8 +2,6 @@ using System.Drawing;
 
 namespace ChineseChess {
     class Piece {
-        public const float Width = 50f;
-        public const float Height = 50f;
         private Board board;
         private Pieces type;
         private Point location;
