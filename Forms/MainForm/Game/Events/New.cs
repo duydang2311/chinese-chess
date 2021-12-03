@@ -13,12 +13,12 @@ namespace ChineseChess {
 						this.game.Dispose();
 					}
 					int sides = Enum.GetNames(typeof(Side)).Length;
-					Color[] sideColors = new Color[sides];
+					SideColor[] sideColors = new SideColor[sides];
 					Player[] sidePlayers = new Player[sides];
 					sidePlayers[(int)form.BlackSide] = new Player(form.BlackName, form.BlackIsAI);
 					sidePlayers[(int)form.RedSide] = new Player(form.RedName, form.RedIsAI);
-					sideColors[(int)form.BlackSide] = Color.Black; 
-					sideColors[(int)form.RedSide] = Color.Red; 
+					sideColors[(int)form.BlackSide] = SideColor.Black; 
+					sideColors[(int)form.RedSide] = SideColor.Red; 
 					this.game = new Game(this.panelGame, sidePlayers, sideColors, new Board(this.panelGame.Size.Width * 0.8f, new PointF(this.panelGame.Size.Width * 0.2f / 2, this.panelGame.Size.Height * 0.2f / 2)));
 					break;
 				}

@@ -7,9 +7,11 @@ namespace ChineseChess {
         private Board board;
         private Pieces type;
         private Point location;
+        private Color highlight;
         public Piece(Board board, Pieces type) {
             this.board = board;
             this.type = type;
+            this.highlight = Color.Transparent;
             this.location = new Point(0, 0);
         }
         public Piece(Board board, Pieces type, Point location) {
@@ -28,12 +30,28 @@ namespace ChineseChess {
             get => this.location;
             set { this.location = value; }
         }
-        public void Draw(Color color, Graphics graphics) {
+        public Color Highlight {
+            get => this.highlight;
+            set { this.highlight = value; }
+        }
+        public void Draw(SideColor color, Graphics graphics) {
             PointF location = BoardHelper.GetLocation(this.board, this.location.X, this.location.Y);
-            float size = this.board.Width / Board.Cols;
-            location.X -= size / 2;
-            location.Y -= size / 2;
-            graphics.DrawImage(PieceHelper.GetImage(color, this.type), location.X, location.Y, size, size);
+            float diameter = this.board.Width / Board.Cols;
+            location.X -= diameter / 2;
+            location.Y -= diameter / 2;
+            graphics.DrawImage(PieceHelper.GetImage(color, this.type), location.X, location.Y, diameter, diameter);
+            if(this.highlight != Color.Transparent) {
+                using(Brush brush = new SolidBrush(this.highlight)) {
+                    graphics.FillEllipse(brush, location.X, location.Y, diameter, diameter);
+                }
+            }
+        }
+        public bool IsPointCollided(float x, float y) {
+            PointF location = BoardHelper.GetLocation(this.board, this.location.X, this.location.Y);
+            float radius = (this.board.Width / Board.Cols) / 2;
+            float vx = location.X - x;
+            float vy = location.Y - y;
+            return ((vx * vx + vy * vy) <= radius * radius);
         }
     }
 }

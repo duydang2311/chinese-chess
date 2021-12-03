@@ -64,7 +64,7 @@ namespace ChineseChess {
             if(index == -1) return;
             this.sides[(int)side].RemoveAt(index);
         }
-        public void Draw(Color[] colors, Graphics graphics) {
+        public void Draw(SideColor[] colors, Graphics graphics) {
             graphics.DrawImage(ChineseChess.Properties.Resources.board_trans, this.location.X, this.location.Y, this.Width, this.Height);
             for(int i = 0 ; i != this.sides.Length; ++i) {
                 foreach(Piece piece in this.sides[i]) {

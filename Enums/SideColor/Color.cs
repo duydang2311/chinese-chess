@@ -1,5 +1,5 @@
 namespace ChineseChess {
-    enum Color {
+    enum SideColor {
         Black,
         Red 
     }

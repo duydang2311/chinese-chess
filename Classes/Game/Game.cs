@@ -7,9 +7,9 @@ namespace ChineseChess {
 	class Game : PictureBox {
 		private Panel panel;
 		private Player[] sidePlayers;
-		private Color[] sideColors;
+		private SideColor[] sideColors;
 		private Board board;
-		public Game(Panel panel, Player[] sidePlayers, Color[] sideColors, Board board) : base() {
+		public Game(Panel panel, Player[] sidePlayers, SideColor[] sideColors, Board board) : base() {
 			this.panel = panel;
 			this.sidePlayers = sidePlayers;
 			this.sideColors = sideColors;
