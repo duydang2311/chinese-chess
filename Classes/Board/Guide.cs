@@ -5,6 +5,7 @@ namespace ChineseChess {
         public void UpdateGuide(Piece piece) {
             if(piece == null) {
                 this.guide.Clear();
+                return;
             }
             for(int i = 0; i != this.sides.Length; ++i) {
                 if(this.sides[i] == null) continue;
@@ -15,7 +16,6 @@ namespace ChineseChess {
                 for(int j = 0; j != moves.Count; ++j) {
                     moves[j] = moves[j] + location;
                 }
-                piece.Location = new System.Drawing.Point(moves[moves.Count - 1].X, moves[moves.Count - 1].Y);
                 this.guide.Points = moves;
                 break;
             }
