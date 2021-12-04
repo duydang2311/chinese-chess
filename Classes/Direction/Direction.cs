@@ -17,6 +17,9 @@ namespace ChineseChess {
         public Direction Opposite {
             get => new Direction(-this.x, -this.y);
         }
+        public Direction Perpendicular {
+            get => new Direction(-this.y, this.x);
+        }
         public static Direction operator+(Direction a, Direction b) {
             return new Direction(a.X + b.X, a.Y + b.Y);
         }
@@ -64,6 +67,23 @@ namespace ChineseChess {
         }
         public static Direction Right(Side side) {
             return -Direction.Left(side);
+        }
+        public static Direction Get(Side side, Directions direction) {
+            switch(direction) {
+                case Directions.Forward: {
+                    return Direction.Forward(side);
+                }
+                case Directions.Backward: {
+                    return Direction.Backward(side);
+                }
+                case Directions.Left: {
+                    return Direction.Left(side);
+                }
+                case Directions.Right: {
+                    return Direction.Right(side);
+                }
+            }
+            return null;
         }
     }
 }
