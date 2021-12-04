@@ -14,7 +14,6 @@ namespace ChineseChess {
                 if(temp.X > 1 || temp.X < -1 || temp.Y > 1 || temp.Y < -1) continue;
                 foreach(Directions direction in directionsEnum) {
                     if(!blocked[(int)direction] && DirectionHelper.Compare(temp, Direction.Get(side, direction))) {
-                        // filtered.Add(temp);
                         blocked[(int)direction] = true;
                         ++cnt;
                     }
