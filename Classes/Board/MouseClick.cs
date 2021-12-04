@@ -18,6 +18,7 @@ namespace ChineseChess {
         public bool OnMouseClick() {
             Piece before = this.selectedPiece;
             this.SelectedPiece = this.highlightedPiece;
+            this.UpdateGuide(this.selectedPiece);
             return (before != this.selectedPiece);
         }
     }

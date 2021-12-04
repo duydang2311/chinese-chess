@@ -10,12 +10,14 @@ namespace ChineseChess {
         private PointF location;
         private List<Piece>[] sides;
         private Image image;
+        private Guide guide;
         public Board(Image image, float size, PointF location) {
             int length = System.Enum.GetNames(typeof(Side)).Length;
             this.size = size;
             this.location = location;
             this.sides = new List<Piece>[length];
             this.image = new Bitmap(image, (int)(790 / Board.WidthHeightRatio), 790);
+            this.guide = new Guide(this);
             for(int i = 0; i != length; ++i) {
                 this.sides[i] = new List<Piece>();
             }
@@ -68,6 +70,7 @@ namespace ChineseChess {
         }
         public void Draw(SideColor[] colors, Graphics graphics) {
             graphics.DrawImage(this.image, this.location.X, this.location.Y, this.Width, this.Height);
+            this.guide.Draw(graphics);
             for(int i = 0 ; i != this.sides.Length; ++i) {
                 foreach(Piece piece in this.sides[i]) {
                     piece.Draw(colors[i], graphics);
