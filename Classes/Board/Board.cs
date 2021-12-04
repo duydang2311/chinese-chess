@@ -21,6 +21,7 @@ namespace ChineseChess {
             for(int i = 0; i != length; ++i) {
                 this.sides[i] = new List<Piece>();
             }
+            this.guide.GuideClickEvent += this.OnGuideClick;
         }
         public float Width {
             get => this.size;
@@ -70,12 +71,12 @@ namespace ChineseChess {
         }
         public void Draw(SideColor[] colors, Graphics graphics) {
             graphics.DrawImage(this.image, this.location.X, this.location.Y, this.Width, this.Height);
-            this.guide.Draw(graphics);
             for(int i = 0 ; i != this.sides.Length; ++i) {
                 foreach(Piece piece in this.sides[i]) {
                     piece.Draw(colors[i], graphics);
                 }
             }
+            this.guide.Draw(graphics);
         }
     }
 }
