@@ -2,7 +2,7 @@ namespace ChineseChess {
     using System;
     using System.Collections.Generic;
     static class HorseRule {
-        public static List<Direction> FilterPos(Side side, Piece piece, List<Piece> pieces) {
+        private static List<Direction> FilterPos(Side side, Piece piece, List<Piece> pieces) {
             List<Direction> filtered = new List<Direction>(4);
             Direction location = new Direction(piece.Location.X, piece.Location.Y);
             Direction temp;
