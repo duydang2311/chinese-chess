@@ -1,4 +1,5 @@
 namespace ChineseChess {
+    using System;
     class Direction {
         private int x;
         private int y;
@@ -19,6 +20,9 @@ namespace ChineseChess {
         }
         public Direction Perpendicular {
             get => new Direction(-this.y, this.x);
+        }
+        public float Length {
+            get => (float)Math.Sqrt(this.x * this.x + this.y * this.y);
         }
         public static Direction operator+(Direction a, Direction b) {
             return new Direction(a.X + b.X, a.Y + b.Y);
