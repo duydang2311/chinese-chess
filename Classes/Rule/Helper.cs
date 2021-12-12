@@ -22,10 +22,10 @@ namespace ChineseChess {
             Direction block = new Direction(11, 11);
             Direction temp;
             foreach(Piece p in pieces) {
-                temp = DirectionHelper.Normalize(p.Location.X - x, p.Location.Y - y);
-                if(DirectionHelper.Compare(direction, temp)) {
+                temp = new Direction(p.Location.X - x, p.Location.Y - y);
+                if(DirectionHelper.Compare(direction, temp.Normalized)) {
                     if(temp.Length < block.Length) {
-                        block = new Direction(p.Location.X - x, p.Location.Y - y);
+                        block = temp;
                     }
                 }
             }
