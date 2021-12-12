@@ -10,10 +10,32 @@ namespace ChineseChess {
                     return HorseRule.GetMoves(side, piece, pieces);
                 }
                 case Pieces.Chariot: {
-                    return ChariotRule.GetMoves(side, piece);
+                    return ChariotRule.GetMoves(side, piece, pieces);
                 }
             }
             return null;
+        }
+        public static List<Direction> GetMoves(Piece piece, List<Piece> pieces, Direction direction, int steps = -1) {
+            List<Direction> moves = new List<Direction>();
+            int x = piece.Location.X;
+            int y = piece.Location.Y;
+            Direction block = new Direction(11, 11);
+            Direction temp;
+            foreach(Piece p in pieces) {
+                temp = DirectionHelper.Normalize(p.Location.X - x, p.Location.Y - y);
+                if(DirectionHelper.Compare(direction, temp)) {
+                    if(temp.Length < block.Length) {
+                        block = new Direction(p.Location.X - x, p.Location.Y - y);
+                    }
+                }
+            }
+            block += direction;
+            temp = direction;
+            while(DirectionHelper.Validate(piece, temp) && !DirectionHelper.Compare(temp, block)) {
+                moves.Add(temp);
+                temp += direction;
+            }
+            return moves;
         }
     }
 }
