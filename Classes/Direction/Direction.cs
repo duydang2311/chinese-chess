@@ -24,6 +24,14 @@ namespace ChineseChess {
         public float Length {
             get => (float)Math.Sqrt(this.x * this.x + this.y * this.y);
         }
+        public Direction Normalized {
+            get {
+                float length = (float)Math.Sqrt(x * x + y * y);
+                x = (int)(x / length);
+                y = (int)(y / length);
+                return new Direction(x, y);
+            }
+        }
         public static Direction operator+(Direction a, Direction b) {
             return new Direction(a.X + b.X, a.Y + b.Y);
         }
