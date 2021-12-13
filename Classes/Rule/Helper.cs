@@ -31,7 +31,7 @@ namespace ChineseChess {
             }
             block += direction;
             temp = direction;
-            while(DirectionHelper.Validate(piece, temp) && !DirectionHelper.Compare(temp, block)) {
+            while(steps-- != 0 && DirectionHelper.Validate(piece, temp) && !DirectionHelper.Compare(temp, block)) {
                 moves.Add(temp);
                 temp += direction;
             }
