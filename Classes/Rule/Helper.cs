@@ -12,6 +12,9 @@ namespace ChineseChess {
                 case Pieces.Chariot: {
                     return ChariotRule.GetMoves(side, piece, pieces);
                 }
+                case Pieces.Guard: {
+                    return GuardRule.GetMoves(side, piece, pieces);
+                }
             }
             return null;
         }
