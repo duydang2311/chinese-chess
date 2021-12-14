@@ -6,11 +6,13 @@ namespace ChineseChess {
         private Pieces type;
         private Point location;
         private Color highlight;
-        public Piece(Board board, Pieces type) {
+        private Side side;
+        public Piece(Board board, Pieces type, Side side) {
             this.board = board;
             this.type = type;
             this.highlight = Color.Transparent;
             this.location = new Point(0, 0);
+            this.side = side;
         }
         public Piece(Board board, Pieces type, Point location) {
             this.board = board;
@@ -32,6 +34,10 @@ namespace ChineseChess {
         public Color Highlight {
             get => this.highlight;
             set { this.highlight = value; }
+        }
+        public Side Side {
+            get => this.side;
+            set { this.side = value; }
         }
         public void Draw(SideColor color, Graphics graphics) {
             PointF location = BoardHelper.GetLocation(this.board, this.location.X, this.location.Y);
