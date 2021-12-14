@@ -26,10 +26,11 @@ namespace ChineseChess {
         }
         public Direction Normalized {
             get {
-                float length = (float)Math.Sqrt(x * x + y * y);
-                x = (int)(x / length);
-                y = (int)(y / length);
-                return new Direction(x, y);
+                int divisor = Util.GCD(this.x, this.y);
+                if(divisor == 0) {
+                    return new Direction(this.x, this.y);
+                }
+                return new Direction(this.x / divisor, this.y / divisor);
             }
         }
         public static Direction operator+(Direction a, Direction b) {
