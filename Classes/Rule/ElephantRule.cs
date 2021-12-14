@@ -7,10 +7,10 @@ namespace ChineseChess {
             Direction backward = Direction.Backward(side);
             Direction left = Direction.Left(side);
             Direction right = Direction.Right(side);
-            list.AddRange(RuleHelper.GetMoves(piece, pieces, (forward + left) * 2));
-            list.AddRange(RuleHelper.GetMoves(piece, pieces, (forward + right) * 2));
-            list.AddRange(RuleHelper.GetMoves(piece, pieces, (backward + left) * 2));
-            list.AddRange(RuleHelper.GetMoves(piece, pieces, (backward + right) * 2));
+            list.AddRange(RuleHelper.GetMoves(piece, pieces, (forward + left) * 2, 1));
+            list.AddRange(RuleHelper.GetMoves(piece, pieces, (forward + right) * 2, 1));
+            list.AddRange(RuleHelper.GetMoves(piece, pieces, (backward + left) * 2, 1));
+            list.AddRange(RuleHelper.GetMoves(piece, pieces, (backward + right) * 2, 1));
             return list;
         }
     }
