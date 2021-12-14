@@ -42,22 +42,22 @@ namespace ChineseChess {
             int i = 0;
             foreach(List<Piece> list in sides) {
                 list.Clear();
-                list.Add(new Piece(this, Pieces.General, new Point((int)(Board.Cols / 2), i * (Board.Rows - 1))));
-                list.Add(new Piece(this, Pieces.Guard, new Point((int)(Board.Cols / 2) - 1, i * (Board.Rows - 1))));
-                list.Add(new Piece(this, Pieces.Guard, new Point((int)(Board.Cols / 2) + 1, i * (Board.Rows - 1))));
-                list.Add(new Piece(this, Pieces.Elephant, new Point((int)(Board.Cols / 2) - 2, i * (Board.Rows - 1))));
-                list.Add(new Piece(this, Pieces.Elephant, new Point((int)(Board.Cols / 2) + 2, i * (Board.Rows - 1))));
-                list.Add(new Piece(this, Pieces.Horse, new Point((int)(Board.Cols / 2) - 3, i * (Board.Rows - 1))));
-                list.Add(new Piece(this, Pieces.Horse, new Point((int)(Board.Cols / 2) + 3, i * (Board.Rows - 1))));
-                list.Add(new Piece(this, Pieces.Chariot, new Point((int)(Board.Cols / 2) - 4, i * (Board.Rows - 1))));
-                list.Add(new Piece(this, Pieces.Chariot, new Point((int)(Board.Cols / 2) + 4, i * (Board.Rows - 1))));
-                list.Add(new Piece(this, Pieces.Cannon, new Point((int)(Board.Cols / 2) - 3, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 2)));
-                list.Add(new Piece(this, Pieces.Cannon, new Point((int)(Board.Cols / 2) + 3, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 2)));
-                list.Add(new Piece(this, Pieces.Soldier, new Point((int)(Board.Cols / 2) - 4, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
-                list.Add(new Piece(this, Pieces.Soldier, new Point((int)(Board.Cols / 2) - 2, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
-                list.Add(new Piece(this, Pieces.Soldier, new Point((int)(Board.Cols / 2), i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
-                list.Add(new Piece(this, Pieces.Soldier, new Point((int)(Board.Cols / 2) + 2, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
-                list.Add(new Piece(this, Pieces.Soldier, new Point((int)(Board.Cols / 2) + 4, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
+                list.Add(new Piece(this, Pieces.General, (Side)i, new Point((int)(Board.Cols / 2), i * (Board.Rows - 1))));
+                list.Add(new Piece(this, Pieces.Guard, (Side)i, new Point((int)(Board.Cols / 2) - 1, i * (Board.Rows - 1))));
+                list.Add(new Piece(this, Pieces.Guard, (Side)i, new Point((int)(Board.Cols / 2) + 1, i * (Board.Rows - 1))));
+                list.Add(new Piece(this, Pieces.Elephant, (Side)i, new Point((int)(Board.Cols / 2) - 2, i * (Board.Rows - 1))));
+                list.Add(new Piece(this, Pieces.Elephant, (Side)i, new Point((int)(Board.Cols / 2) + 2, i * (Board.Rows - 1))));
+                list.Add(new Piece(this, Pieces.Horse, (Side)i, new Point((int)(Board.Cols / 2) - 3, i * (Board.Rows - 1))));
+                list.Add(new Piece(this, Pieces.Horse, (Side)i, new Point((int)(Board.Cols / 2) + 3, i * (Board.Rows - 1))));
+                list.Add(new Piece(this, Pieces.Chariot, (Side)i, new Point((int)(Board.Cols / 2) - 4, i * (Board.Rows - 1))));
+                list.Add(new Piece(this, Pieces.Chariot, (Side)i, new Point((int)(Board.Cols / 2) + 4, i * (Board.Rows - 1))));
+                list.Add(new Piece(this, Pieces.Cannon, (Side)i, new Point((int)(Board.Cols / 2) - 3, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 2)));
+                list.Add(new Piece(this, Pieces.Cannon, (Side)i, new Point((int)(Board.Cols / 2) + 3, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 2)));
+                list.Add(new Piece(this, Pieces.Soldier, (Side)i, new Point((int)(Board.Cols / 2) - 4, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
+                list.Add(new Piece(this, Pieces.Soldier, (Side)i, new Point((int)(Board.Cols / 2) - 2, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
+                list.Add(new Piece(this, Pieces.Soldier, (Side)i, new Point((int)(Board.Cols / 2), i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
+                list.Add(new Piece(this, Pieces.Soldier, (Side)i, new Point((int)(Board.Cols / 2) + 2, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
+                list.Add(new Piece(this, Pieces.Soldier, (Side)i, new Point((int)(Board.Cols / 2) + 4, i * (Board.Rows - 1) + ((i == 0) ? 1 : -1) * 3)));
                 ++i;
             }
         }
