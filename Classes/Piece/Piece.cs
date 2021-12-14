@@ -14,10 +14,11 @@ namespace ChineseChess {
             this.location = new Point(0, 0);
             this.side = side;
         }
-        public Piece(Board board, Pieces type, Point location) {
+        public Piece(Board board, Pieces type, Side side, Point location) {
             this.board = board;
             this.type = type;
             this.highlight = Color.Transparent;
+            this.side = side;
             this.location = location;
         }
         public Board Board {
