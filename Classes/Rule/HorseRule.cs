@@ -2,7 +2,7 @@ namespace ChineseChess {
     using System;
     using System.Collections.Generic;
     static class HorseRule {
-        private static List<Direction> FilterPos(Side side, Piece piece, List<Piece> pieces) {
+        private static List<Direction> FilterPos(Piece piece, List<Piece> pieces) {
             List<Direction> filtered = new List<Direction>(4);
             Direction location = new Direction(piece.Location.X, piece.Location.Y);
             Direction temp;
@@ -13,7 +13,7 @@ namespace ChineseChess {
                 temp = new Direction(p.Location.X, p.Location.Y) - location;
                 if(temp.X > 1 || temp.X < -1 || temp.Y > 1 || temp.Y < -1) continue;
                 foreach(Directions direction in directionsEnum) {
-                    if(!blocked[(int)direction] && DirectionHelper.Compare(temp, Direction.Get(side, direction))) {
+                    if(!blocked[(int)direction] && DirectionHelper.Compare(temp, Direction.Get(piece.Side, direction))) {
                         blocked[(int)direction] = true;
                         ++cnt;
                     }
@@ -21,14 +21,14 @@ namespace ChineseChess {
             }
             foreach(Directions direction in directionsEnum) {
                 if(!blocked[(int)direction]) {
-                    filtered.Add(Direction.Get(side, direction));
+                    filtered.Add(Direction.Get(piece.Side, direction));
                 }
             }
             return filtered;
         }
-        public static List<Direction> GetMoves(Side side, Piece piece, List<Piece> pieces) {
+        public static List<Direction> GetMoves(Piece piece, List<Piece> pieces) {
             List<Direction> list = new List<Direction>(4);
-            List<Direction> filtered = HorseRule.FilterPos(side, piece, pieces);
+            List<Direction> filtered = HorseRule.FilterPos(piece, pieces);
             if(filtered.Count == 0) return list;
             Direction temp;
             foreach(Direction p in filtered) {

@@ -1,22 +1,25 @@
 namespace ChineseChess {
     using System.Collections.Generic;
     static class RuleHelper {
-        public static List<Direction> GetMoves(Side side, Piece piece, List<Piece> pieces) {
+        public static List<Direction> GetMoves(Piece piece, List<Piece> pieces) {
             switch(piece.Type) {
                 case Pieces.Soldier: {
-                    return SoldierRule.GetMoves(side, piece);
+                    return SoldierRule.GetMoves(piece);
                 }
                 case Pieces.Horse: {
-                    return HorseRule.GetMoves(side, piece, pieces);
+                    return HorseRule.GetMoves(piece, pieces);
                 }
                 case Pieces.Chariot: {
-                    return ChariotRule.GetMoves(side, piece, pieces);
+                    return ChariotRule.GetMoves(piece, pieces);
                 }
                 case Pieces.Guard: {
-                    return GuardRule.GetMoves(side, piece, pieces);
+                    return GuardRule.GetMoves(piece, pieces);
                 }
                 case Pieces.Elephant: {
-                    return ElephantRule.GetMoves(side, piece, pieces);
+                    return ElephantRule.GetMoves(piece, pieces);
+                }
+                case Pieces.Cannon: {
+                    return CannonRule.GetMoves(piece, pieces);
                 }
             }
             return null;

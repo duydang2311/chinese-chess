@@ -2,19 +2,19 @@ using System.Collections.Generic;
 
 namespace ChineseChess {
     static class SoldierRule {
-        public static List<Direction> GetMoves(Side side, Piece piece) {
+        public static List<Direction> GetMoves(Piece piece) {
             List<Direction> list = new List<Direction>();
-            Direction direction = Direction.Forward(side);
+            Direction direction = Direction.Forward(piece.Side);
             if(DirectionHelper.Validate(piece, direction)) {
                 list.Add(direction);
             }
-            if((side == Side.Top && piece.Location.Y >= (int)(Board.Rows / 2))
-            || (side == Side.Bottom && piece.Location.Y < (int)(Board.Rows / 2))) {
-                direction = Direction.Left(side);
+            if((piece.Side == Side.Top && piece.Location.Y >= (int)(Board.Rows / 2))
+            || (piece.Side == Side.Bottom && piece.Location.Y < (int)(Board.Rows / 2))) {
+                direction = Direction.Left(piece.Side);
                 if(DirectionHelper.Validate(piece, direction)) {
                     list.Add(direction);
                 }
-                direction = Direction.Right(side);
+                direction = Direction.Right(piece.Side);
                 if(DirectionHelper.Validate(piece, direction)) {
                     list.Add(direction);
                 }
