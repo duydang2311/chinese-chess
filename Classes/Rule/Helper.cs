@@ -26,7 +26,7 @@ namespace ChineseChess {
             Direction temp;
             foreach(Piece p in pieces) {
                 temp = new Direction(p.Location.X - x, p.Location.Y - y);
-                if(DirectionHelper.Compare(direction, temp.Normalized)) {
+                if(DirectionHelper.Compare(direction.Normalized, temp.Normalized)) {
                     if(temp.Length < block.Length) {
                         block = temp;
                     }
