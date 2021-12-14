@@ -3,14 +3,14 @@ namespace ChineseChess {
     static class ElephantRule {
         public static List<Direction> GetMoves(Side side, Piece piece, List<Piece> pieces) {
             List<Direction> list = new List<Direction>();
-            Direction forward = Direction.Forward(side);
-            Direction backward = Direction.Backward(side);
-            Direction left = Direction.Left(side);
-            Direction right = Direction.Right(side);
-            list.AddRange(RuleHelper.GetMoves(piece, pieces, (forward + left) * 2, 1));
-            list.AddRange(RuleHelper.GetMoves(piece, pieces, (forward + right) * 2, 1));
-            list.AddRange(RuleHelper.GetMoves(piece, pieces, (backward + left) * 2, 1));
-            list.AddRange(RuleHelper.GetMoves(piece, pieces, (backward + right) * 2, 1));
+            Direction fl = Direction.Forward(side) + Direction.Left(side);
+            Direction fr = Direction.Forward(side) + Direction.Right(side);
+            Direction bl = Direction.Backward(side) + Direction.Left(side);
+            Direction br = Direction.Backward(side) + Direction.Right(side);
+            list.AddRange(RuleHelper.GetMoves(piece, pieces, fl * 2, fl, 1));
+            list.AddRange(RuleHelper.GetMoves(piece, pieces, fr * 2, fr, 1));
+            list.AddRange(RuleHelper.GetMoves(piece, pieces, bl * 2, bl, 1));
+            list.AddRange(RuleHelper.GetMoves(piece, pieces, br * 2, br, 1));
             return list;
         }
     }
