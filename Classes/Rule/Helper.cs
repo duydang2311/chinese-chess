@@ -15,6 +15,9 @@ namespace ChineseChess {
                 case Pieces.Guard: {
                     return GuardRule.GetMoves(side, piece, pieces);
                 }
+                case Pieces.Elephant: {
+                    return ElephantRule.GetMoves(side, piece, pieces);
+                }
             }
             return null;
         }
