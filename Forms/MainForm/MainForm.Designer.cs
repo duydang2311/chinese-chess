@@ -33,7 +33,7 @@ namespace ChineseChess
 			this.menuItemGame = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuItemGame_New = new System.Windows.Forms.ToolStripMenuItem();
 			this.panelGame = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
+			this.panelStats = new System.Windows.Forms.Panel();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -59,24 +59,22 @@ namespace ChineseChess
 			// menuItemGame_New
 			// 
 			this.menuItemGame_New.Name = "menuItemGame_New";
-			this.menuItemGame_New.Size = new System.Drawing.Size(180, 22);
+			this.menuItemGame_New.Size = new System.Drawing.Size(98, 22);
 			this.menuItemGame_New.Text = "New";
 			// 
 			// panelGame
 			// 
-			this.panelGame.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelGame.Location = new System.Drawing.Point(0, 24);
 			this.panelGame.Name = "panelGame";
 			this.panelGame.Size = new System.Drawing.Size(480, 540);
 			this.panelGame.TabIndex = 1;
 			// 
-			// panel2
+			// panelStats
 			// 
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-			this.panel2.Location = new System.Drawing.Point(480, 24);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(300, 540);
-			this.panel2.TabIndex = 2;
+			this.panelStats.Location = new System.Drawing.Point(480, 24);
+			this.panelStats.Name = "panelStats";
+			this.panelStats.Size = new System.Drawing.Size(300, 540);
+			this.panelStats.TabIndex = 2;
 			// 
 			// MainForm
 			// 
@@ -84,7 +82,7 @@ namespace ChineseChess
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(780, 564);
 			this.Controls.Add(this.panelGame);
-			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panelStats);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.MinimumSize = new System.Drawing.Size(796, 603);
@@ -103,7 +101,7 @@ namespace ChineseChess
 		private System.Windows.Forms.ToolStripMenuItem menuItemGame;
 		private System.Windows.Forms.ToolStripMenuItem menuItemGame_New;
 		private System.Windows.Forms.Panel panelGame;
-		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Panel panelStats;
 	}
 }
 
