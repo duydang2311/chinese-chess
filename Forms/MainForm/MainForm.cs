@@ -5,6 +5,8 @@ namespace ChineseChess {
 		public MainForm() {
 			InitializeComponent();
 			this.menuItemGame_New.Click += Game_OnNew;
+			this.Resize += MainForm_OnResize;
+			this.panelStats.SizeChanged += PanelStats_OnSizeChanged;
 		}
 	}
 }
