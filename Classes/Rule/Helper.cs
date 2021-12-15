@@ -28,6 +28,7 @@ namespace ChineseChess {
             List<Direction> moves = new List<Direction>();
             int x = piece.Location.X;
             int y = piece.Location.Y;
+            Piece blockPiece = null;
             Direction block = new Direction(11, 11);
             Direction temp;
             foreach(Piece p in pieces) {
@@ -35,10 +36,13 @@ namespace ChineseChess {
                 if(DirectionHelper.Compare(direction.Normalized, temp.Normalized)) {
                     if(temp.Length < block.Length) {
                         block = temp;
+                        blockPiece = p;
                     }
                 }
             }
-            block += direction;
+            if(blockPiece is not null && blockPiece.Side != piece.Side) {
+                block += direction;
+            }
             temp = direction;
             while(steps-- != 0 && DirectionHelper.Validate(piece, temp) && !DirectionHelper.Compare(temp, block)) {
                 moves.Add(temp);
@@ -50,6 +54,7 @@ namespace ChineseChess {
             List<Direction> moves = new List<Direction>();
             int x = piece.Location.X;
             int y = piece.Location.Y;
+            Piece blockPiece = null;
             Direction block = new Direction(11, 11);
             Direction temp;
             foreach(Piece p in pieces) {
@@ -60,10 +65,13 @@ namespace ChineseChess {
                 if(DirectionHelper.Compare(direction.Normalized, temp.Normalized)) {
                     if(temp.Length < block.Length) {
                         block = temp;
+                        blockPiece = p;
                     }
                 }
             }
-            block += direction;
+            if(blockPiece is not null && blockPiece.Side != piece.Side) {
+                block += direction;
+            }
             temp = direction;
             while(steps-- != 0 && DirectionHelper.Validate(piece, temp) && !DirectionHelper.Compare(temp, block)) {
                 moves.Add(temp);
