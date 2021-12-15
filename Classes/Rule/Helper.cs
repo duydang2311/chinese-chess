@@ -21,6 +21,9 @@ namespace ChineseChess {
                 case Pieces.Cannon: {
                     return CannonRule.GetMoves(piece, pieces);
                 }
+                case Pieces.General: {
+                    return GeneralRule.GetMoves(piece, pieces);
+                }
             }
             return null;
         }
