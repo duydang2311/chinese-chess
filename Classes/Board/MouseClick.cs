@@ -20,11 +20,13 @@ namespace ChineseChess {
                 if(before != this.highlightedPiece) {
                     this.guide.OnMouseClick(x, y);
                 }
-            } else {
-                this.UpdateGuide(this.highlightedPiece);
             }
             this.SelectedPiece = this.highlightedPiece;
-            return (before != this.selectedPiece);
+            if(this.selectedPiece != before) {
+                this.UpdateGuide(this.highlightedPiece);
+                return true;
+            }
+            return false;
         }
     }
 }
