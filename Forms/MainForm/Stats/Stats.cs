@@ -1,0 +1,98 @@
+namespace ChineseChess {
+    using System.Windows.Forms;
+    using System.Drawing;
+	public partial class MainForm : Form {
+        private PictureBox topPictureBox;
+        private Label topNameLabel;
+        private Label topTimeLabel;
+        private PictureBox bottomPictureBox;
+        private Label bottomNameLabel;
+        private Label bottomTimeLabel;
+        private const float StatsCellHeight = 1.0f / 3.0f;
+        private const float StatsPadding = 0.02f;
+        private void InitStatsControls() {
+            if(this.game is null) return;
+            this.topPictureBox = new PictureBox();
+            this.topPictureBox.Paint += TopPictureBox_OnPaint;
+            this.topNameLabel = new Label();
+            this.topNameLabel.Text = this.game.SidePlayers[(int)Side.Top].Name;
+            this.topNameLabel.TextAlign = ContentAlignment.TopLeft;
+            this.topTimeLabel = new Label();
+            this.topTimeLabel.Text = "09:59";
+            this.topTimeLabel.TextAlign = ContentAlignment.BottomLeft;
+
+            this.bottomPictureBox = new PictureBox();
+            this.bottomPictureBox.Paint += BottomPictureBox_OnPaint;
+            this.bottomNameLabel = new Label();
+            this.bottomNameLabel.Text = this.game.SidePlayers[(int)Side.Bottom].Name;
+            this.bottomNameLabel.TextAlign = ContentAlignment.TopLeft;
+            this.bottomTimeLabel = new Label();
+            this.bottomTimeLabel.Text = "10:00";
+            this.bottomTimeLabel.TextAlign = ContentAlignment.BottomLeft;
+
+            this.panelStats.Controls.Add(this.topNameLabel);
+            this.panelStats.Controls.Add(this.topTimeLabel);
+            this.panelStats.Controls.Add(this.topPictureBox);
+            this.panelStats.Controls.Add(this.bottomNameLabel);
+            this.panelStats.Controls.Add(this.bottomTimeLabel);
+            this.panelStats.Controls.Add(this.bottomPictureBox);
+            this.OrganizeStatsControls();
+        }
+        private void OrganizeStatsControls() {
+            int width = this.panelStats.Size.Width;
+            int height = this.panelStats.Size.Height;
+            int paddingWidth = (int)(width * MainForm.StatsPadding);
+            int paddingHeight = 0;
+            int cellHeight = (int)(height * MainForm.StatsCellHeight);
+            Size size;
+            using(Font jhengHeiName = new Font("Microsoft JhengHei UI", (float)(height * 0.035), System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point),
+                jhengHeiTime = new Font("Microsoft JhengHei UI", (float)(height * 0.025), System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)) {
+                this.topNameLabel.Font = this.bottomNameLabel.Font = jhengHeiName;
+                this.topTimeLabel.Font = this.bottomTimeLabel.Font = jhengHeiTime;
+            }
+            this.topPictureBox.Size = new Size(width - 2 * paddingWidth, cellHeight);
+            this.topPictureBox.Location = new Point(paddingWidth, paddingHeight);
+            this.topNameLabel.Size = new Size(this.topPictureBox.Width / 2, this.topPictureBox.Height / 2);
+            this.topTimeLabel.Size = new Size(this.topPictureBox.Width / 2, this.topPictureBox.Height / 2);
+
+            size = TextRenderer.MeasureText(this.topNameLabel.Text, this.topNameLabel.Font);
+            size.Height += (size.Height * (int)(size.Width / (this.topNameLabel.Size.Width + 1)));
+            size += TextRenderer.MeasureText(this.topTimeLabel.Text, this.topTimeLabel.Font, this.topTimeLabel.Size);
+
+            this.topNameLabel.Location = new Point(
+                paddingWidth + this.CalculateStatsAvatarHeight(this.topPictureBox.Size),
+                this.topPictureBox.Location.Y + this.topPictureBox.Height / 2 - size.Height / 4
+            );
+            this.topTimeLabel.Location = new Point(
+                paddingWidth + this.CalculateStatsAvatarHeight(this.topPictureBox.Size),
+                this.topPictureBox.Location.Y - size.Height / 4
+            );
+
+            this.bottomPictureBox.Size = new Size(width - 2 * paddingWidth, cellHeight);
+            this.bottomPictureBox.Location = new Point(paddingWidth, 2 * cellHeight);
+            this.bottomNameLabel.Size = new Size(this.bottomPictureBox.Width / 2, this.bottomPictureBox.Height / 2);
+            this.bottomTimeLabel.Size = new Size(this.bottomPictureBox.Width / 2, this.bottomPictureBox.Height / 2);
+
+            size = TextRenderer.MeasureText(this.bottomNameLabel.Text, this.bottomNameLabel.Font);
+            size.Height += (size.Height * (int)(size.Width / (this.bottomNameLabel.Size.Width + 1)));
+            size += TextRenderer.MeasureText(this.bottomTimeLabel.Text, this.bottomTimeLabel.Font, this.bottomTimeLabel.Size);
+
+            this.bottomNameLabel.Location = new Point(
+                paddingWidth + this.CalculateStatsAvatarHeight(this.bottomPictureBox.Size),
+                this.bottomPictureBox.Location.Y + this.bottomPictureBox.Height / 2 - size.Height / 4
+            );
+            this.bottomTimeLabel.Location = new Point(
+                paddingWidth + this.CalculateStatsAvatarHeight(this.bottomPictureBox.Size),
+                this.bottomPictureBox.Location.Y - size.Height / 4
+            );
+        }
+        private void InitStats() {
+            if(this.game is null) return;
+            foreach(Control control in this.panelStats.Controls) {
+                control.Dispose();
+            }
+            this.panelStats.Controls.Clear();
+            this.InitStatsControls();
+        }
+	}
+}
