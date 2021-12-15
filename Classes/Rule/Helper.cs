@@ -53,7 +53,7 @@ namespace ChineseChess {
             }
             return moves;
         }
-        public static List<Direction> GetMoves(Piece piece, List<Piece> pieces, Direction direction, Direction restricted, int steps = -1) {
+        public static List<Direction> GetMoves(Piece piece, List<Piece> pieces, Direction direction, Direction min, Direction max, int steps = -1) {
             List<Direction> moves = new List<Direction>();
             int x = piece.Location.X;
             int y = piece.Location.Y;
@@ -62,9 +62,6 @@ namespace ChineseChess {
             Direction temp;
             foreach(Piece p in pieces) {
                 temp = new Direction(p.Location.X - x, p.Location.Y - y);
-                if(DirectionHelper.Compare(temp, restricted)) {
-                    return moves;
-                }
                 if(DirectionHelper.Compare(direction.Normalized, temp.Normalized)) {
                     if(temp.Length < block.Length) {
                         block = temp;
@@ -76,7 +73,7 @@ namespace ChineseChess {
                 block += direction;
             }
             temp = direction;
-            while(steps-- != 0 && DirectionHelper.Validate(piece, temp) && !DirectionHelper.Compare(temp, block)) {
+            while(steps-- != 0 && DirectionHelper.Validate(piece, temp, min, max) && !DirectionHelper.Compare(temp, block)) {
                 moves.Add(temp);
                 temp += direction;
             }
