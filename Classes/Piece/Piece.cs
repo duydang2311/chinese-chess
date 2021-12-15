@@ -1,20 +1,20 @@
-using System.Drawing;
-
 namespace ChineseChess {
-    class Piece {
+    using System;
+    using System.Drawing;
+    partial class Piece {
         private Board board;
         private Pieces type;
-        private Point location;
+        private Direction location;
         private Color highlight;
         private Side side;
         public Piece(Board board, Pieces type, Side side) {
             this.board = board;
             this.type = type;
             this.highlight = Color.Transparent;
-            this.location = new Point(0, 0);
+            this.location = new Direction(0, 0);
             this.side = side;
         }
-        public Piece(Board board, Pieces type, Side side, Point location) {
+        public Piece(Board board, Pieces type, Side side, Direction location) {
             this.board = board;
             this.type = type;
             this.highlight = Color.Transparent;
@@ -28,7 +28,7 @@ namespace ChineseChess {
             get => this.type;
             set { this.type = value; }
         }
-        public Point Location {
+        public Direction Location {
             get => this.location;
             set { this.location = value; }
         }
@@ -58,6 +58,24 @@ namespace ChineseChess {
             float vx = location.X - x;
             float vy = location.Y - y;
             return ((vx * vx + vy * vy) <= radius * radius);
+        }
+        public Piece Capture(int x, int y) {
+            Piece res = null;
+            int index = 0;
+            for(int i = 0, length = Enum.GetNames(typeof(Side)).Length; i != length; ++i) {
+                foreach(Piece p in this.board.Sides[i]) {
+                    if(p.Location.X == x && p.Location.Y == y) {
+                        index = i;
+                        res = p;
+                        break;
+                    }
+                }
+            }
+            if(res is not null && res != this) {
+                this.board.Sides[index].Remove(res);
+            }
+            this.Location = new Direction(x, y);
+            return res;
         }
     }
 }
