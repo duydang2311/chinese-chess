@@ -63,6 +63,16 @@ namespace ChineseChess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap avatar_1 {
+            get {
+                object obj = ResourceManager.GetObject("avatar_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_cannon {
             get {
                 object obj = ResourceManager.GetObject("black_cannon", resourceCulture);
