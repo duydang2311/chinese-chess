@@ -25,6 +25,12 @@ namespace ChineseChess {
 			get => this.board;
 			set { this.board = value; }
 		}
+		public Player[] SidePlayers {
+			get => this.sidePlayers;
+		}
+		public SideColor[] SideColors {
+			get => this.sideColors;
+		}
 		private void Panel_Resize(object sender, EventArgs e) {
 			this.ClientSize = new Size(panel.ClientSize.Width, panel.ClientSize.Height);
 			if(panel.ClientSize.Width * Board.WidthHeightRatio > panel.ClientSize.Height) {
