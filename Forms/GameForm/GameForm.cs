@@ -3,16 +3,10 @@ using System.Windows.Forms;
 
 namespace ChineseChess {
 	public partial class GameForm : Form {
-		private string redName;
-		private bool redIsAI;
-		private string blackName;
-		private bool blackIsAI;
 		public GameForm(string redName = "", string blackName = "") {
-			this.redName = redName; 
-			this.redIsAI = false;
-			this.blackName = blackName;
-			this.blackIsAI = false;
 			InitializeComponent();
+			this.textBoxRedName.Text = redName;
+			this.textBoxBlackName.Text = blackName;
 			this.comboBoxRedSide.SelectedIndex = 0;
 			this.comboBoxBlackSide.SelectedIndex = 1;
 			this.buttonOk.Click += buttonOk_Click;
@@ -22,22 +16,22 @@ namespace ChineseChess {
 			this.checkboxBlackAI.CheckedChanged += checkBoxBlackAI_CheckedChanged;
 		}
 		public string RedName {
-			get => this.redName;
+			get => this.textBoxRedName.Text;
 		}
 		public Side RedSide {
 			get => (Side)this.comboBoxRedSide.SelectedIndex;
 		}
 		public bool RedIsAI {
-			get => this.redIsAI;
+			get => this.checkboxRedAI.Checked;
 		}
 		public string BlackName {
-			get => this.blackName;
+			get => this.textBoxBlackName.Text;
 		}
 		public Side BlackSide {
 			get => (Side)this.comboBoxBlackSide.SelectedIndex;
 		}
 		public bool BlackIsAI {
-			get => this.blackIsAI;
+			get => this.checkboxBlackAI.Checked;
 		}
 		private void buttonOk_Click(object sender, EventArgs e) {
 			this.DialogResult = DialogResult.None;
@@ -86,11 +80,6 @@ namespace ChineseChess {
 			} else {
 				this.checkboxRedAI.Checked = true;
 			}
-		}
-		public static GameForm Prompt(Form parent) {
-			GameForm form = new GameForm();
-			form.ShowDialog(parent);
-			return form;
 		}
 	}
 }
