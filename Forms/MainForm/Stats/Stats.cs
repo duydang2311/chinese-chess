@@ -10,7 +10,7 @@ namespace ChineseChess {
         private Label bottomTimeLabel;
         private const float StatsCellHeightPercent = 0.3f;
         private const float StatsPadding = 0.02f;
-        private const float StatsCellGapPercent = 0.03333f;
+        private const float StatsCellGapPercent = 0.05f;
         public int StatsCellHeight {
 			get => (int)(this.panelStats.Height * MainForm.StatsCellHeightPercent);
         }
@@ -52,8 +52,8 @@ namespace ChineseChess {
             int paddingWidth = (int)(width * MainForm.StatsPadding);
             int paddingHeight = 0;
             Size size;
-            using(Font jhengHeiName = new Font("Microsoft JhengHei UI", (float)(height * 0.035), System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point),
-                jhengHeiTime = new Font("Microsoft JhengHei UI", (float)(height * 0.025), System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)) {
+            using(Font jhengHeiName = new Font("Microsoft JhengHei UI", Util.Max(height * 0.035f, 0.25f), System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point),
+                jhengHeiTime = new Font("Microsoft JhengHei UI", Util.Max(height * 0.025f, 0.25f), System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)) {
                 this.topNameLabel.Font = this.bottomNameLabel.Font = jhengHeiName;
                 this.topTimeLabel.Font = this.bottomTimeLabel.Font = jhengHeiTime;
             }
@@ -68,11 +68,11 @@ namespace ChineseChess {
 
             this.topNameLabel.Location = new Point(
                 paddingWidth + this.CalculateStatsAvatarHeight(this.topPictureBox.Size),
-                this.topPictureBox.Location.Y + this.topPictureBox.Height / 2 - size.Height / 4
+                this.topPictureBox.Location.Y + this.topPictureBox.Height / 2 - size.Height / 3
             );
             this.topTimeLabel.Location = new Point(
                 paddingWidth + this.CalculateStatsAvatarHeight(this.topPictureBox.Size),
-                this.topPictureBox.Location.Y - size.Height / 4
+                this.topPictureBox.Location.Y - size.Height / 3
             );
 
             this.bottomPictureBox.Size = new Size(width - 2 * paddingWidth, this.StatsCellHeight);
@@ -82,29 +82,51 @@ namespace ChineseChess {
 
             size = TextRenderer.MeasureText(this.bottomNameLabel.Text, this.bottomNameLabel.Font);
             size.Height += (size.Height * (int)(size.Width / (this.bottomNameLabel.Size.Width + 1)));
-            size += TextRenderer.MeasureText(this.bottomTimeLabel.Text, this.bottomTimeLabel.Font, this.bottomTimeLabel.Size);
+            // size += TextRenderer.MeasureText(this.bottomTimeLabel.Text, this.bottomTimeLabel.Font, this.bottomTimeLabel.Size);
 
             this.bottomNameLabel.Location = new Point(
                 paddingWidth + this.CalculateStatsAvatarHeight(this.bottomPictureBox.Size),
-                this.bottomPictureBox.Location.Y + this.bottomPictureBox.Height / 2 - size.Height / 4
+                this.bottomPictureBox.Location.Y + this.bottomPictureBox.Height / 2 - size.Height / 3
             );
             this.bottomTimeLabel.Location = new Point(
                 paddingWidth + this.CalculateStatsAvatarHeight(this.bottomPictureBox.Size),
-                this.bottomPictureBox.Location.Y - size.Height / 4
+                this.bottomPictureBox.Location.Y - size.Height / 3
             );
         }
         private void InitStats() {
             if(this.game is null) return;
-            foreach(Control control in this.panelStats.Controls) {
-                control.Dispose();
-            }
+            this.ClearStatsControls();
             this.game.SidePlayers[(int)Side.Top].Timer.Elapsed += OnTopTimerElapsed;
             this.game.SidePlayers[(int)Side.Bottom].Timer.Elapsed += OnBottomTimerElapsed;
-            this.panelStats.Controls.Clear();
-            if(this.webPanel is null) {
-                this.InitWeb();
-            }
             this.InitStatsControls();
+        }
+        private void ClearStatsControls() {
+            this.panelStats.SuspendLayout();
+            if(this.topPictureBox is not null) {
+                this.panelStats.Controls.Remove(this.topPictureBox);
+                this.topPictureBox = null;
+            }
+            if(this.topNameLabel is not null) {
+                this.panelStats.Controls.Remove(this.topNameLabel);
+                this.topNameLabel = null;
+            }
+            if(this.topTimeLabel is not null) {
+                this.panelStats.Controls.Remove(this.topTimeLabel);
+                this.topTimeLabel = null;
+            }
+            if(this.bottomPictureBox is not null) {
+                this.panelStats.Controls.Remove(this.bottomPictureBox);
+                this.bottomPictureBox = null;
+            }
+            if(this.bottomNameLabel is not null) {
+                this.panelStats.Controls.Remove(this.bottomNameLabel);
+                this.bottomNameLabel = null;
+            }
+            if(this.bottomTimeLabel is not null) {
+                this.panelStats.Controls.Remove(this.bottomTimeLabel);
+                this.bottomTimeLabel = null;
+            }
+            this.panelStats.ResumeLayout();
         }
 	}
 }
