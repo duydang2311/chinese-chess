@@ -25,7 +25,6 @@ namespace ChineseChess {
 			this.webPanel.Controls.Add(this.web);
 			this.web.Visible = false;
 			this.OrganizeWebPanel();
-			this.PlayYouTube("bwine - do you");
 		}
 		public void OrganizeWebPanel() {
 			if(this.webPanel is null) {
@@ -36,6 +35,9 @@ namespace ChineseChess {
 		}
 		public async void PlayYouTube(string q) {
 			SearchListResponse res = await YouTube.Search(q);
+			if(res.Items.Count == 0) {
+				return;
+			}
 			string html = @"
 				<html>
 					<body style='margin: 0; padding: 0;'>
