@@ -23,7 +23,7 @@ namespace ChineseChess {
             Piece newHighlightedPiece = null;
             for(int i = 0 ; i != this.sides.Length; ++i) {
                 foreach(Piece piece in this.sides[i]) {
-                    if(piece.IsPointCollided(x, y)) {
+                    if(piece.IsPointCollided(x, y) && piece.Side == this.game.TurnSide) {
                         newHighlightedPiece = piece;
                         break;
                     }
