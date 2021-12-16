@@ -37,6 +37,12 @@
     <Compile Update="Forms\MainForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\MainForm\Media\Events\FromLocalClick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainForm\Media\Events\FromYouTubeClick.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\MainForm\Stats\Events\Paint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -47,6 +53,15 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MainForm\Stats\Stats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainForm\Stats\Web\Events\LoadingStateChanged.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainForm\Stats\Web\Web.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\YouTubeSearchForm\YouTubeSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
