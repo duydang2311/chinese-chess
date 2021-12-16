@@ -4,6 +4,9 @@
     <Compile Update="Classes\Game\Dispose.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Classes\Game\Events\Resize.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Classes\Game\Game.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -14,6 +17,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Classes\Game\Paint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Classes\Game\PlayerTurn.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Forms\GameForm\GameForm.cs">
@@ -35,6 +41,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MainForm\Stats\Events\SizeChanged.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainForm\Stats\Events\Timer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MainForm\Stats\Stats.cs">
