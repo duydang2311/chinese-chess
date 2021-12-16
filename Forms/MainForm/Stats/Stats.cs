@@ -101,7 +101,9 @@ namespace ChineseChess {
             this.game.SidePlayers[(int)Side.Top].Timer.Elapsed += OnTopTimerElapsed;
             this.game.SidePlayers[(int)Side.Bottom].Timer.Elapsed += OnBottomTimerElapsed;
             this.panelStats.Controls.Clear();
-            this.InitWeb();
+            if(this.webPanel is null) {
+                this.InitWeb();
+            }
             this.InitStatsControls();
         }
 	}
