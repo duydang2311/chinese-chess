@@ -7,6 +7,9 @@ namespace ChineseChess {
             if(this.webPanel is not null) {
                 this.OrganizeWebPanel();
             }
+            if(this.player is not null) {
+                this.OrganizePlayerControls();
+            }
             if(this.game is not null) {
                 this.OrganizeStatsControls();
                 this.topPictureBox.Refresh();
