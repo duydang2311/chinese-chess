@@ -1,4 +1,5 @@
 namespace ChineseChess {
+	using System;
 	using System.Drawing;
     using System.Windows.Forms;
     using Google.Apis.YouTube.v3.Data;
@@ -8,15 +9,20 @@ namespace ChineseChess {
 		private const float WebWidthRatio = 560f / 315f;
 		private Panel webPanel;
 		private ChromiumWebBrowser web;
-		public void InitWeb() {
+		public void TerminateWeb() {
+			if(this.webPanel is not null) {
+				this.webPanel.Controls.Clear();
+				this.panelStats.Controls.Remove(this.webPanel);
+				this.webPanel.Dispose();
+				this.webPanel = null;
+			}
 			if(this.web is not null) {
 				this.web.Dispose();
-				if(this.webPanel is not null) {
-					this.webPanel.Controls.Clear();
-					this.panelStats.Controls.Remove(this.webPanel);
-					this.webPanel.Dispose();
-				}
+				this.web = null;
 			}
+		}
+		public void InitWeb() {
+			this.TerminateWeb();
 			this.webPanel = new Panel();
 			this.web = new ChromiumWebBrowser("about:blank");
 			this.web.LoadingStateChanged += Web_OnLoadingStateChanged;
@@ -25,6 +31,7 @@ namespace ChineseChess {
 			this.webPanel.Controls.Add(this.web);
 			this.web.Visible = false;
 			this.OrganizeWebPanel();
+			this.TerminatePlayer();
 		}
 		public void OrganizeWebPanel() {
 			if(this.webPanel is null) {
