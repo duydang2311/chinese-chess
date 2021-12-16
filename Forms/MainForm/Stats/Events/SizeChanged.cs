@@ -4,11 +4,14 @@ namespace ChineseChess {
     using System.Drawing;
 	public partial class MainForm : Form {
         private void PanelStats_OnSizeChanged(object sender, EventArgs e) {
-            if(this.game is null) return;
-            this.OrganizeStatsControls();
-            this.OrganizeWebPanel();
-            this.topPictureBox.Refresh();
-            this.bottomPictureBox.Refresh();
+            if(this.webPanel is not null) {
+                this.OrganizeWebPanel();
+            }
+            if(this.game is not null) {
+                this.OrganizeStatsControls();
+                this.topPictureBox.Refresh();
+                this.bottomPictureBox.Refresh();
+            }
         }
 	}
 }
