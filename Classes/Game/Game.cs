@@ -19,6 +19,7 @@ namespace ChineseChess {
 
 			this.board.Setup();
 			this.SwitchTurn();
+			this.Panel_Resize(null, null);
 		}
 		public Board Board {
 			get => this.board;
