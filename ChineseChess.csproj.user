@@ -43,6 +43,9 @@
     <Compile Update="Forms\MainForm\Media\Events\FromYouTubeClick.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\MainForm\Media\Media.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\MainForm\Stats\Events\Paint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -50,6 +53,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MainForm\Stats\Events\Timer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainForm\Stats\Media\Media.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MainForm\Stats\Stats.cs">
