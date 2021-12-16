@@ -27,8 +27,7 @@ namespace ChineseChess {
                 SearchResource.ListRequest req = service.Search.List("id");
                 req.Q = q;
                 req.MaxResults = 1;
-                SearchListResponse res = await req.ExecuteAsync();
-                return res;
+                return await req.ExecuteAsync();
             } catch(Google.GoogleApiException ex) {
                 if(ex.Error.Code == 403) {
                     activeKey = (++activeKey) % YouTube.ApiKeys.Length;
