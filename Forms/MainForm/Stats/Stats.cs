@@ -92,7 +92,6 @@ namespace ChineseChess {
                 paddingWidth + this.CalculateStatsAvatarHeight(this.bottomPictureBox.Size),
                 this.bottomPictureBox.Location.Y - size.Height / 4
             );
-            this.OrganizeWebPanel();
         }
         private void InitStats() {
             if(this.game is null) return;
