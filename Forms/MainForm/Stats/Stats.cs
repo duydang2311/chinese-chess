@@ -39,6 +39,7 @@ namespace ChineseChess {
             this.OrganizeStatsControls();
         }
         private void OrganizeStatsControls() {
+            if(this.game is null) return;
             int width = this.panelStats.Size.Width;
             int height = this.panelStats.Size.Height;
             int paddingWidth = (int)(width * MainForm.StatsPadding);
@@ -91,6 +92,8 @@ namespace ChineseChess {
             foreach(Control control in this.panelStats.Controls) {
                 control.Dispose();
             }
+            this.game.SidePlayers[(int)Side.Top].Timer.Elapsed += OnTopTimerElapsed;
+            this.game.SidePlayers[(int)Side.Bottom].Timer.Elapsed += OnBottomTimerElapsed;
             this.panelStats.Controls.Clear();
             this.InitStatsControls();
         }
