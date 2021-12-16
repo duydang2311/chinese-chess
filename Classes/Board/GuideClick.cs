@@ -4,7 +4,7 @@ namespace ChineseChess {
             if(this.selectedPiece == null) return;
             Piece capturing = this.selectedPiece.Capture(e.X, e.Y);
             this.HighlightedPiece = null; //workaround for MouseClick
-            if(capturing is not null) {
+            if(capturing is null) {
                 return;
             }
             this.captured[(int)capturing.Side].Add(capturing);
