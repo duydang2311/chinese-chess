@@ -34,6 +34,9 @@ namespace ChineseChess
 			this.menuItemGame_New = new System.Windows.Forms.ToolStripMenuItem();
 			this.panelGame = new System.Windows.Forms.Panel();
 			this.panelStats = new System.Windows.Forms.Panel();
+			this.mediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.mediaFromLocalMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.mediaFromYouTubeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -41,7 +44,8 @@ namespace ChineseChess
 			// 
 			this.menuStrip1.BackColor = System.Drawing.SystemColors.Menu;
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemGame});
+            this.menuItemGame,
+            this.mediaToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(780, 24);
@@ -59,7 +63,7 @@ namespace ChineseChess
 			// menuItemGame_New
 			// 
 			this.menuItemGame_New.Name = "menuItemGame_New";
-			this.menuItemGame_New.Size = new System.Drawing.Size(98, 22);
+			this.menuItemGame_New.Size = new System.Drawing.Size(180, 22);
 			this.menuItemGame_New.Text = "New";
 			// 
 			// panelGame
@@ -75,6 +79,27 @@ namespace ChineseChess
 			this.panelStats.Name = "panelStats";
 			this.panelStats.Size = new System.Drawing.Size(300, 540);
 			this.panelStats.TabIndex = 2;
+			// 
+			// mediaToolStripMenuItem
+			// 
+			this.mediaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mediaFromLocalMenuItem,
+            this.mediaFromYouTubeMenuItem});
+			this.mediaToolStripMenuItem.Name = "mediaToolStripMenuItem";
+			this.mediaToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+			this.mediaToolStripMenuItem.Text = "Media";
+			// 
+			// mediaFromLocalMenuItem
+			// 
+			this.mediaFromLocalMenuItem.Name = "mediaFromLocalMenuItem";
+			this.mediaFromLocalMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.mediaFromLocalMenuItem.Text = "From Local";
+			// 
+			// mediaFromYouTubeMenuItem
+			// 
+			this.mediaFromYouTubeMenuItem.Name = "mediaFromYouTubeMenuItem";
+			this.mediaFromYouTubeMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.mediaFromYouTubeMenuItem.Text = "From YouTube";
 			// 
 			// MainForm
 			// 
@@ -102,6 +127,9 @@ namespace ChineseChess
 		private System.Windows.Forms.ToolStripMenuItem menuItemGame_New;
 		private System.Windows.Forms.Panel panelGame;
 		private System.Windows.Forms.Panel panelStats;
+		private System.Windows.Forms.ToolStripMenuItem mediaToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem mediaFromLocalMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem mediaFromYouTubeMenuItem;
 	}
 }
 
