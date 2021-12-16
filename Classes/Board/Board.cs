@@ -9,17 +9,21 @@ namespace ChineseChess {
         private float size;
         private PointF location;
         private List<Piece>[] sides;
+        private List<Piece>[] captured;
         private Image image;
         private Guide guide;
+        private Game game;
         public Board(Image image, float size, PointF location) {
             int length = System.Enum.GetNames(typeof(Side)).Length;
             this.size = size;
             this.location = location;
             this.sides = new List<Piece>[length];
+            this.captured = new List<Piece>[length];
             this.image = new Bitmap(image, (int)(790 / Board.WidthHeightRatio), 790);
             this.guide = new Guide(this);
             for(int i = 0; i != length; ++i) {
                 this.sides[i] = new List<Piece>();
+                this.captured[i] = new List<Piece>();
             }
             this.guide.GuideClickEvent += this.OnGuideClick;
         }
@@ -37,6 +41,10 @@ namespace ChineseChess {
         public PointF Location {
             get => this.location;
             set { this.location = value; }
+        }
+        public Game Game {
+            get => this.game;
+            set { this.game = value; }
         }
         public void Setup() {
             int i = 0;
