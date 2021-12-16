@@ -71,8 +71,9 @@ namespace ChineseChess
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.searchTextBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Name = "YouTubeSearchForm";
-			this.Text = "YouTubeSearchForm";
+			this.Text = "Play YouTube";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
