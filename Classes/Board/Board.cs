@@ -86,5 +86,33 @@ namespace ChineseChess {
             }
             this.guide.Draw(graphics);
         }
+        public void DrawCaptured(SideColor[] colors, Graphics graphics, int shift = 0, bool vertical = true) {
+            int offset = 0;
+            if(vertical) {
+                for(int i = 0 ; i != this.sides.Length; ++i) {
+                    int index = 0;
+                    foreach(Piece piece in this.captured[i]) {
+                        piece.Location = new Direction(Board.Cols + shift + i + offset, index++);
+                        if(index == Board.Rows - 1) {
+                            ++offset;
+                            index = 0;
+                        }
+                        piece.Draw(colors[i], graphics);
+                    }
+                }
+            } else {
+                for(int i = 0 ; i != this.sides.Length; ++i) {
+                    int index = 0;
+                    foreach(Piece piece in this.captured[i]) {
+                        piece.Location = new Direction(index++, Board.Rows + shift + i + offset);
+                        if(index == Board.Cols - 1) {
+                            ++offset;
+                            index = 0;
+                        }
+                        piece.Draw(colors[i], graphics);
+                    }
+                }
+            }
+        }
     }
 }
