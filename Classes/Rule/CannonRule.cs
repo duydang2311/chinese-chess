@@ -3,28 +3,39 @@ namespace ChineseChess {
     static class CannonRule {
         private static List<Direction> GetMoves(Piece piece, List<Piece> pieces, Direction direction, int steps = -1) {
             List<Direction> moves = new List<Direction>();
-            int x = piece.Location.X;
-            int y = piece.Location.Y;
+            List<Piece> tempPieces = new List<Piece>();
             Piece jumpPiece = null;
             Piece blockPiece = null;
             Direction jump = new Direction(Board.Rows, Board.Cols);
             Direction block = null;
             Direction temp;
             foreach(Piece p in pieces) {
-                temp = new Direction(p.Location.X - x, p.Location.Y - y);
+                temp = p.Location - piece.Location;
                 if(DirectionHelper.Compare(direction.Normalized, temp.Normalized)) {
+                    tempPieces.Add(p);
+                    moves.Add(temp);
                     if(temp.Length < jump.Length) {
-                        if(jumpPiece is null || jumpPiece.Side != piece.Side) {
-                            block = jump;
-                        }
                         jump = temp;
                         jumpPiece = p;
-                    } else if(temp.Length < block.Length) {
-                        block = temp;
-                        blockPiece = p;
                     }
                 }
             }
+            foreach(Piece p in tempPieces) {
+                if(p == jumpPiece) {
+                    continue;
+                }
+                if(blockPiece is null) {
+                    block = p.Location - piece.Location;
+                    blockPiece = p;
+                    continue;
+                }
+                temp = p.Location - piece.Location;
+                if(temp.Length < block.Length) {
+                    block = temp;
+                    blockPiece = p;
+                }
+            }
+            moves.Clear();
             temp = direction;
             while(steps-- != 0 && DirectionHelper.Validate(piece, temp) && !DirectionHelper.Compare(temp, jump)) {
                 moves.Add(temp);
