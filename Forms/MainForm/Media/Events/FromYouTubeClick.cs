@@ -6,7 +6,7 @@ namespace ChineseChess {
             using(YouTubeSearchForm form = new YouTubeSearchForm()) {
                 switch(form.ShowDialog(this)) {
                     case DialogResult.OK: {
-                        if(this.web is null) {
+                        if(this.web is null || this.web.IsDisposed) {
                             this.InitWeb();
                         }
                         this.PlayYouTube(form.SearchText);
