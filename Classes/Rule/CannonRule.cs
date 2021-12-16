@@ -6,6 +6,7 @@ namespace ChineseChess {
             int x = piece.Location.X;
             int y = piece.Location.Y;
             Piece jumpPiece = null;
+            Piece blockPiece = null;
             Direction jump = new Direction(Board.Rows, Board.Cols);
             Direction block = null;
             Direction temp;
@@ -20,6 +21,7 @@ namespace ChineseChess {
                         jumpPiece = p;
                     } else if(temp.Length < block.Length) {
                         block = temp;
+                        blockPiece = p;
                     }
                 }
             }
@@ -28,7 +30,7 @@ namespace ChineseChess {
                 moves.Add(temp);
                 temp += direction;
             }
-            if(block is not null && !DirectionHelper.Compare(block, jump) && DirectionHelper.Validate(piece, block)) {
+            if(block is not null && blockPiece is not null && blockPiece.Side != piece.Side && !DirectionHelper.Compare(block, jump) && DirectionHelper.Validate(piece, block)) {
                 moves.Add(block);
             }
             return moves;
