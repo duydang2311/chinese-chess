@@ -13,5 +13,8 @@ namespace ChineseChess {
             }
             return a | b;
         }
+        public static float Max(float a, float b) {
+            return (a > b) ? a : b;
+        }
     }
 }
