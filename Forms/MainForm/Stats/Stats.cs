@@ -8,8 +8,15 @@ namespace ChineseChess {
         private PictureBox bottomPictureBox;
         private Label bottomNameLabel;
         private Label bottomTimeLabel;
-        private const float StatsCellHeight = 1.0f / 3.0f;
+        private const float StatsCellHeightPercent = 0.3f;
         private const float StatsPadding = 0.02f;
+        private const float StatsCellGapPercent = 0.03333f;
+        public int StatsCellHeight {
+			get => (int)(this.panelStats.Height * MainForm.StatsCellHeightPercent);
+        }
+        public int StatsCellGap {
+			get => (int)(this.panelStats.Height * MainForm.StatsCellGapPercent);
+        }
         private void InitStatsControls() {
             if(this.game is null) return;
             this.topPictureBox = new PictureBox();
@@ -44,14 +51,13 @@ namespace ChineseChess {
             int height = this.panelStats.Size.Height;
             int paddingWidth = (int)(width * MainForm.StatsPadding);
             int paddingHeight = 0;
-            int cellHeight = (int)(height * MainForm.StatsCellHeight);
             Size size;
             using(Font jhengHeiName = new Font("Microsoft JhengHei UI", (float)(height * 0.035), System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point),
                 jhengHeiTime = new Font("Microsoft JhengHei UI", (float)(height * 0.025), System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)) {
                 this.topNameLabel.Font = this.bottomNameLabel.Font = jhengHeiName;
                 this.topTimeLabel.Font = this.bottomTimeLabel.Font = jhengHeiTime;
             }
-            this.topPictureBox.Size = new Size(width - 2 * paddingWidth, cellHeight);
+            this.topPictureBox.Size = new Size(width - 2 * paddingWidth, this.StatsCellHeight);
             this.topPictureBox.Location = new Point(paddingWidth, paddingHeight);
             this.topNameLabel.Size = new Size(this.topPictureBox.Width / 2, this.topPictureBox.Height / 2);
             this.topTimeLabel.Size = new Size(this.topPictureBox.Width / 2, this.topPictureBox.Height / 2);
@@ -69,8 +75,8 @@ namespace ChineseChess {
                 this.topPictureBox.Location.Y - size.Height / 4
             );
 
-            this.bottomPictureBox.Size = new Size(width - 2 * paddingWidth, cellHeight);
-            this.bottomPictureBox.Location = new Point(paddingWidth, 2 * cellHeight);
+            this.bottomPictureBox.Size = new Size(width - 2 * paddingWidth, this.StatsCellHeight);
+            this.bottomPictureBox.Location = new Point(paddingWidth, 2 * (this.StatsCellHeight + this.StatsCellGap));
             this.bottomNameLabel.Size = new Size(this.bottomPictureBox.Width / 2, this.bottomPictureBox.Height / 2);
             this.bottomTimeLabel.Size = new Size(this.bottomPictureBox.Width / 2, this.bottomPictureBox.Height / 2);
 
@@ -86,6 +92,7 @@ namespace ChineseChess {
                 paddingWidth + this.CalculateStatsAvatarHeight(this.bottomPictureBox.Size),
                 this.bottomPictureBox.Location.Y - size.Height / 4
             );
+            this.OrganizeWebPanel();
         }
         private void InitStats() {
             if(this.game is null) return;
@@ -95,6 +102,7 @@ namespace ChineseChess {
             this.game.SidePlayers[(int)Side.Top].Timer.Elapsed += OnTopTimerElapsed;
             this.game.SidePlayers[(int)Side.Bottom].Timer.Elapsed += OnBottomTimerElapsed;
             this.panelStats.Controls.Clear();
+            this.InitWeb();
             this.InitStatsControls();
         }
 	}
