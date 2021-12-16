@@ -75,6 +75,7 @@ namespace ChineseChess {
                 this.board.Sides[index].Remove(res);
             }
             this.Location = new Direction(x, y);
+            this.board.Game.SwitchTurn();
             return res;
         }
     }
