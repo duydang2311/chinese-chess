@@ -20,6 +20,12 @@ namespace ChineseChess {
             }
         }
         public bool OnMouseMove(float x, float y) {
+            if(this.game.Ended) {
+                if(this.highlightedPiece is not null) {
+                    this.HighlightedPiece = null;
+                }
+                return false;
+            }
             Piece newHighlightedPiece = null;
             for(int i = 0 ; i != this.sides.Length; ++i) {
                 foreach(Piece piece in this.sides[i]) {
