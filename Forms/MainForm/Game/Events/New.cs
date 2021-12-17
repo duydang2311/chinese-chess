@@ -10,6 +10,7 @@ namespace ChineseChess {
 				if(form.ShowDialog(this) != DialogResult.OK) return;
 				if(this.game != null) {
 					this.game.Dispose();
+					this.panelGame.Controls.Clear();
 				}
 				int sides = Enum.GetNames(typeof(Side)).Length;
 				SideColor[] sideColors = new SideColor[sides];
