@@ -5,8 +5,9 @@ namespace ChineseChess {
             uint interval = (uint)this.timer.Interval;
             if(interval > this.milisecond) {
                 this.milisecond = 0;
+                this.game.End();
             } else {
-                this.milisecond -= (uint)this.timer.Interval;
+                this.milisecond -= interval;
             }
         }
     }
