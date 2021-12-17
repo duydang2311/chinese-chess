@@ -7,6 +7,7 @@ namespace ChineseChess {
         private bool isAI;
         private uint milisecond;
         private Timer timer;
+        private Game game;
         public Player(string name, bool isAI, uint milisecond = Player.DefaultMiliseconds) {
             this.name = name;
             this.isAI = isAI;
@@ -34,6 +35,10 @@ namespace ChineseChess {
         }
         public Timer Timer {
             get => this.timer;
+        }
+        public Game Game {
+            get => this.game;
+            set { this.game = value; }
         }
     }
 }
